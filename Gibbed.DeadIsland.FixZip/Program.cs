@@ -165,7 +165,6 @@ namespace Gibbed.DeadIsland.FixZip
                 hash = Adler32(buffer, 0, block, hash);
                 left -= block;
 
-                // lol wat
                 block = (int)Math.Min(BLOCK_SIZE, left);
                 input.Seek(block, SeekOrigin.Current);
                 left -= block;
@@ -209,14 +208,13 @@ namespace Gibbed.DeadIsland.FixZip
                 block = (int)Math.Min(BLOCK_SIZE, left);
                 if (input.Read(buffer, 0, block) != block)
                 {
-                    throw new EndOfStreamException();
+                    break;
                 }
                 output.Write(buffer, 0, block);
                 left -= block;
 
                 block = (int)Math.Min(BLOCK_SIZE, left);
                 input.Seek(block, SeekOrigin.Current);
-                left -= block;
             }
 
             input.Seek(-22, SeekOrigin.End);
@@ -237,14 +235,13 @@ namespace Gibbed.DeadIsland.FixZip
                 block = (int)Math.Min(BLOCK_SIZE, left);
                 if (input.Read(buffer, 0, block) != block)
                 {
-                    throw new EndOfStreamException();
+                    break;
                 }
                 output.Write(buffer, 0, block);
                 left -= block;
 
                 block = (int)Math.Min(BLOCK_SIZE, left);
                 input.Seek(block, SeekOrigin.Current);
-                left -= block;
             }
         }
 
@@ -422,6 +419,7 @@ namespace Gibbed.DeadIsland.FixZip
                         unwoundData.Seek(unwoundLength - temp.Length, SeekOrigin.Begin);
                         temp.Position = 0;
                         unwoundData.WriteFromStream(temp, temp.Length);
+                        //unwoundData.SetLength(unwoundLength);
                         unwoundData.Position = 0;
                     }
 
@@ -491,7 +489,7 @@ namespace Gibbed.DeadIsland.FixZip
                     // and this changes lower to 0
                     magic[offset] = (byte)(0xFFF1 - lower);
                     
-                    /* ... 0xFFF00000
+                    /* ... FFF0 0000
                      * so if the next byte is 1, hash becomes 1 :)
                      */
 
@@ -506,6 +504,11 @@ namespace Gibbed.DeadIsland.FixZip
                     var finalHash = ComputeHashOfZip(stream, 1);
                     if (finalHash != targetHash)
                     {
+                        if (verbose == true)
+                        {
+                            Console.WriteLine("failure! final hash of {0:X8}", finalHash);
+                        }
+
                         Console.WriteLine("Failed to generate a working fixed zip? :(");
                         Environment.ExitCode = -1;
                     }
@@ -517,9 +520,8 @@ namespace Gibbed.DeadIsland.FixZip
                             Console.WriteLine("size: {0} -> {1}",
                                 initialLength, stream.Length);
                         }
+                        Environment.ExitCode = 0;
                     }
-
-                    Environment.ExitCode = 0;
                 }
             }
         }
