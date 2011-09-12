@@ -38,7 +38,7 @@ using NDesk.Options;
  * target hash instead of copying the original data in.
  */
 
-namespace Gibbed.DeadIsland.FixZip
+namespace Gibbed.Chrome.FixZip
 {
     internal class Program
     {
@@ -172,7 +172,7 @@ namespace Gibbed.DeadIsland.FixZip
 
             return hash;
         }
-        
+
         private static uint ComputeIncompleteHashOfZip(Stream input, uint hash)
         {
             hash = ComputeHashOfFile(input, hash);
@@ -488,7 +488,7 @@ namespace Gibbed.DeadIsland.FixZip
 
                     // and this changes lower to 0
                     magic[offset] = (byte)(0xFFF1 - lower);
-                    
+
                     /* ... FFF0 0000
                      * so if the next byte is 1, hash becomes 1 :)
                      */
