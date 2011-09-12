@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D5F2501A-0C52-49AE-8FF9-7E0B7B30EFF2}</ProjectGuid>
+    <ProjectGuid>{FDAE5B54-5678-4E36-8DB5-7CE046548E79}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gibbed.DeadIsland.FixZip</RootNamespace>
-    <AssemblyName>Gibbed.DeadIsland.FixZip</AssemblyName>
+    <RootNamespace>Gibbed.Chrome.FixZip</RootNamespace>
+    <AssemblyName>Gibbed.Chrome.FixZip</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -48,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gibbed.Chrome.FileFormats\Gibbed.Chrome.FileFormats.csproj">
+      <Project>{5BB2A9C2-626E-4089-8F99-51C98F107778}</Project>
+      <Name>Gibbed.Chrome.FileFormats</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gibbed.IO\Gibbed.IO.csproj">
       <Project>{047857BA-DAA3-4CA7-AFB8-A1B082B28C6A}</Project>
       <Name>Gibbed.IO</Name>

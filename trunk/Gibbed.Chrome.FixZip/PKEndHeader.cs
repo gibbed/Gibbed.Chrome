@@ -20,7 +20,7 @@
  *    distribution.
  */
 
-namespace Gibbed.DeadIsland.FixZip
+namespace Gibbed.Chrome.FixZip
 {
     internal struct PKEndHeader
     {

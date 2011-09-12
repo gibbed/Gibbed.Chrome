@@ -26,11 +26,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Gibbed.DeadIsland.FixZip")]
+[assembly: AssemblyTitle("Gibbed.Chrome.FixZip")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Gibbed.DeadIsland.FixZip")]
+[assembly: AssemblyProduct("Gibbed.Chrome.FixZip")]
 [assembly: AssemblyCopyright("Copyright © Gibbed 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -41,7 +41,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("abb65078-9ced-492d-9e6a-30b8b6b2960b")]
+[assembly: Guid("b25e1c0e-7848-4ad2-b6c7-572be13d0191")]
 
 // Version information for an assembly consists of the following four values:
 //
